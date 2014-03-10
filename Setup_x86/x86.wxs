@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <Product Id="0CCECE44-43FE-4CBF-9D03-C76529529559" Name="Pow8" Codepage="932" Language="1033" Version="1.0.0.0" Manufacturer="kobachi" UpgradeCode="167C077A-7847-4D08-AE13-420886122A93">
+    <Package Description="Pow8 Installer" Comments="Pow8 Installer" InstallerVersion="200" Compressed="yes" Platform="x86" />
+    <Media Id="1" Cabinet="binary.cab" EmbedCab="yes" />
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      <Directory Id="ProgramFilesFolder" Name="PFiles">
+        <Directory Id="MainDir" Name="Pow8">
+          <Component Id="Main" DiskId="1" KeyPath="yes" Guid="6ea3c289-6995-4326-aeb5-f75a68f79767">
+            <File Id="WmiLib" Name="Wmi.dll" Source="..\Wmi\bin\Release\Wmi.dll" />
+            <File Id="PowerOffExecutable" Name="PowerOff.exe" Source="..\PowerOff\bin\Release\PowerOff.exe" />
+            <File Id="LogOffExecutable" Name="LogOff.exe" Source="..\LogOff\bin\Release\LogOff.exe" />
+            <File Id="RebootExecutable" Name="Reboot.exe" Source="..\Reboot\bin\Release\Reboot.exe" />
+            <File Id="HibernateExecutable" Name="Hibernate.exe" Source="..\Hibernate\bin\Release\Hibernate.exe" />
+            <File Id="SleepExecutable" Name="Sleep.exe" Source="..\Sleep\bin\Release\Sleep.exe" />
+          </Component>
+        </Directory>
+      </Directory>
+      <Directory Id="ProgramMenuFolder">
+        <Directory Id="ProgramMenuDir" Name="Pow8">
+          <Component Id="StartMenuShortcuts" Guid="398BDEB5-9AB1-4B8D-A3D5-643C85740B80">
+            <Shortcut Id="PowerOffShortcut" Target="[MainDir]PowerOff.exe" Name="シャットダウン" />
+            <Shortcut Id="LogOffShortcut" Target="[MainDir]LogOff.exe" Name="ログオフ" />
+            <Shortcut Id="RebootShortcut" Target="[MainDir]Reboot.exe" Name="再起動" />
+            <Shortcut Id="HibernateShortcut" Target="[MainDir]Hibernate.exe" Name="休止状態" />
+            <Shortcut Id="SleepShortcut" Target="[MainDir]Sleep.exe" Name="スリープ" />
+            <RemoveFolder Id="ProgramMenuDir" On="uninstall" />
+            <RegistryValue Root="HKCU" Key="Software\kobachi\Pow8" Type="string" Value="" />
+          </Component>
+        </Directory>
+      </Directory>
+    </Directory>
+    <Feature Id="DefaultFeature" Title="Main Feature" Level="1">
+      <ComponentRef Id="Main" />
+      <ComponentRef Id="StartMenuShortcuts" />
+    </Feature>
+    <UI />
+  </Product>
+</Wix>
