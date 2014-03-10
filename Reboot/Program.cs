@@ -10,8 +10,10 @@ namespace Reboot {
 		/// アプリケーションのメイン エントリ ポイントです。
 		/// </summary>
 		[STAThread]
-		static void Main() {
-			new Wmi.Win32OperatingSystem().Reboot();
+		static void Main(string[] args) {
+			var options = args.Where(a => !string.IsNullOrEmpty(a) && 2 < a.Length && (a.StartsWith("-") || a.StartsWith("/")));
+			bool force = options.Count(a => a.Substring(1).ToLower() == "force") > 0;
+			new Wmi.Win32OperatingSystem().Reboot(force);
 		}
 	}
 }
