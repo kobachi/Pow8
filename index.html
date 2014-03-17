@@ -3,6 +3,7 @@
 <head>
 	<meta charset='utf-8'>
 	<meta http-equiv="X-UA-Compatible" content="chrome=1">
+	<title>Pow8 by kobachi</title>
 	<link href='https://fonts.googleapis.com/css?family=Chivo:900' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
 	<link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
@@ -10,7 +11,27 @@
 	<!--[if lt IE 9]>
 	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
-	<title>Pow8 by kobachi</title>
+	<script>
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	ga('create', 'UA-49056329-3', 'kobachi.github.io');
+	ga('send', 'pageview');
+	</script>
+	<script>
+	window.addEventListener("DOMContentLoaded", function(){
+		Array.prototype.forEach.call(document.querySelectorAll("[data-ga-track]"), function(e){
+			e.addEventListener("click", function(ev){
+				var args = this.getAttribute("data-ga-track").split("|");
+				args.splice(0, 0, "_trackEvent");
+				args.push(this.textContent);
+				_gaq.push(args);
+			});
+		});
+	});
+	</script>
 </head>
 
 <body>
@@ -23,10 +44,10 @@
 </header>
 
 <section id="downloads" class="clearfix">
-<a href="./download/Pow8Setup_x64.msi" class="button"><span>64ビット版</span></a>
-<a href="./download/Pow8Setup_x86.msi" class="button"><span>32ビット版</span></a>
-<a href="https://github.com/kobachi/Pow8/zipball/master" class="button"><span>ソースコード</span></a>
-<a href="https://github.com/kobachi/Pow8" class="button"><span>GitHub</span></a>
+<a href="./download/Pow8Setup_x64.msi" class="button" data-ga-track="ダウンロード|ファイル"><span>64ビット版</span></a>
+<a href="./download/Pow8Setup_x86.msi" class="button" data-ga-track="ダウンロード|ファイル"><span>32ビット版</span></a>
+<a href="https://github.com/kobachi/Pow8/zipball/master" class="button" data-ga-track="ダウンロード|ファイル"><span>ソースコード</span></a>
+<a href="https://github.com/kobachi/Pow8" class="button" data-ga-track="リンク|リポジトリ"><span>GitHub</span></a>
 </section>
 
 <hr>
