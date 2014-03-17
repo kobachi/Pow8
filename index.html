@@ -27,7 +27,7 @@
 				var args = this.getAttribute("data-ga-track").split("|");
 				args.splice(0, 0, "_trackEvent");
 				args.push(this.textContent);
-				ga.push(args);
+				ga(args);
 			});
 		});
 	});
